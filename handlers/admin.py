@@ -2,6 +2,7 @@ import os
 from telegram import Update
 from telegram.ext import ContextTypes
 from core.groq_manager import groq_ai
+from core.config import BOT_VERSION, ADMIN_CHAT_IDS
 from utils.logger import get_last_logs # Asumiendo que tienes esto en logger.py
 
 ADMIN_IDS = [int(id.strip()) for id in os.getenv("ADMIN_IDS", "").split(",") if id.strip()]
@@ -17,7 +18,7 @@ async def logs_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Últimas líneas del log
     log_lines = get_last_logs(10) # Tu función que lee el archivo .log
     
-    msg = f"{api_stats}\n\n📝 *Últimos Logs:*\n```{log_lines}```"
+    msg = f"{api_stats}\n\n🤖 *BitBread IA:* {BOT_VERSION}\n📝 *Últimos Logs:*\n```{log_lines}```"
     await update.message.reply_text(msg, parse_mode="Markdown")
 
 async def ms_command(update: Update, context: ContextTypes.DEFAULT_TYPE):

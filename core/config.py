@@ -26,6 +26,7 @@ MODEL_NAME = os.getenv("MODEL_NAME", "llama3-8b-8192")
 # --- PARÁMETROS DEL BOT ---
 # Límite de mensajes que el bot recordará por usuario (contexto)
 MAX_HISTORY = int(os.getenv("MAX_HISTORY", 15))
+BOT_VERSION = "v_B-0.002"
 
 # --- RUTAS DE ARCHIVOS ---
 # Carpeta para base de datos JSON y Logs
