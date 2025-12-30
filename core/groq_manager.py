@@ -163,9 +163,18 @@ class GroqManager:
         return None
 
     def get_stats(self):
-        stats_txt = f"📊 *Uso de APIs Groq*\nTotal Requests: {self.total_requests}\nModelo: {self.model}\n\n"
+        """Devuelve las estadísticas formateadas en HTML."""
+        # Usamos self.total_requests y self.model que SÍ existen
+        stats_txt = f"📊 <b>Uso de APIs Groq</b>\n"
+        stats_txt += f"Total Requests: {self.total_requests}\n"
+        stats_txt += f"Modelo: {self.model}\n\n"
+        
+        # Usamos self.usage_stats que SÍ existe
         for key, count in self.usage_stats.items():
-            stats_txt += f"🔑 ...{key[-4:]}: {count} reqs\n"
+            # Ocultamos la key por seguridad
+            short_key = f"...{key[-4:]}" if len(key) > 4 else key
+            stats_txt += f"🔑 {short_key}: {count} reqs\n"
+            
         return stats_txt
     
     def _load_stats(self):
@@ -205,5 +214,6 @@ class GroqManager:
                 json.dump(data, f, indent=2)
         except Exception as e:
             print(f"Error guardando stats: {e}")
+
 
 groq_ai = GroqManager()
