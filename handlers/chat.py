@@ -12,6 +12,11 @@ DEFAULT_MODEL = os.getenv("MODEL_NAME", "llama3-8b-8192")
 
 async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
+    chat_id = update.effective_chat.id
+    
+    # --- CORRECCIÓN CLAVE PARA TEMAS/TOPICS ---
+    # Obtenemos el ID del hilo actual. Será None en chats privados o grupos sin temas.
+    thread_id = update.effective_message.message_thread_id
     
     user_text = ""
     temp_file_path = None
@@ -22,7 +27,15 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif update.message.voice or update.message.audio:
         # Es un audio: procesar
-        await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=constants.ChatAction.RECORD_VOICE)
+        try:
+            # Enviamos la acción al hilo específico usando message_thread_id
+            await context.bot.send_chat_action(
+                chat_id=chat_id, 
+                action=constants.ChatAction.RECORD_VOICE,
+                message_thread_id=thread_id
+            )
+        except Exception as e:
+            add_log_line(f"Error enviando chat_action (voz): {e}")
         
         try:
             # Obtener el objeto archivo de Telegram
@@ -30,7 +43,6 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             file_obj = await context.bot.get_file(voice.file_id)
             
             # Crear un archivo temporal para guardarlo
-            # Usamos sufijo .m4a o .ogg según lo que mande Telegram, pero .m4a suele funcionar bien con Whisper
             with tempfile.NamedTemporaryFile(delete=False, suffix=".m4a") as temp_file:
                 temp_file_path = temp_file.name
             
@@ -47,7 +59,7 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             # Tratamos la transcripción como si el usuario lo hubiera escrito
             user_text = transcription
             
-            # (Opcional) Responder con el texto entendido para confirmar
+            # Responder con el texto entendido para confirmar
             await update.message.reply_text(f"🎤 <i>Transcripción:</i> \"{user_text}\"", parse_mode="HTML")
 
         except Exception as e:
@@ -67,12 +79,17 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not user_text.strip():
         return
 
-    # --- A PARTIR DE AQUÍ, ES IGUAL QUE ANTES ---
+    # 2. Mostrar estado "escribiendo..." con soporte para hilos
+    try:
+        await context.bot.send_chat_action(
+            chat_id=chat_id, 
+            action=constants.ChatAction.TYPING,
+            message_thread_id=thread_id
+        )
+    except Exception as e:
+        add_log_line(f"Error enviando chat_action (typing): {e}")
 
-    # 2. Mostrar estado "escribiendo..." (porque ahora la IA va a pensar)
-    await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=constants.ChatAction.TYPING)
-
-    # 3. Guardar mensaje del usuario (guardamos el texto transcrito)
+    # 3. Guardar mensaje del usuario
     add_message(user_id, "user", user_text)
 
     # 4. Obtener historial
@@ -81,7 +98,7 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 5. Obtener modelo preferido del usuario
     user_model = get_user_model(user_id, DEFAULT_MODEL)
 
-    # 6. Consultar a Groq (Cerebro LLM)
+    # 6. Consultar a Groq
     ai_response = await groq_ai.get_response(messages, model=user_model)
 
     # 7. Guardar respuesta
@@ -89,6 +106,8 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # 8. Responder
     try:
+        # reply_text hereda automáticamente el thread_id del mensaje original
         await update.message.reply_text(ai_response, parse_mode=constants.ParseMode.HTML)
     except Exception as e:
+        # Fallback si el HTML está mal formado
         await update.message.reply_text(ai_response)
