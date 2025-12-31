@@ -3,6 +3,7 @@ import httpx
 import itertools
 import json
 import re
+import random
 from dotenv import load_dotenv
 from utils.logger import add_log_line
 
@@ -21,9 +22,15 @@ class GroqManager:
                 self.api_keys = []
                 print("⚠️ ADVERTENCIA: No se encontraron API KEYS en .env")
             
+        if self.api_keys:
+            random.shuffle(self.api_keys)
+
         self.key_cycle = itertools.cycle(self.api_keys)
         # Inicializar current_key de forma segura
         self.current_key = next(self.key_cycle) if self.api_keys else None
+        
+        self.requests_since_rotation = 0 
+        self.ROTATION_LIMIT = 100
         
         self.model = os.getenv("MODEL_NAME", "llama-3.3-70b-versatile")
         self.api_url = "https://api.groq.com/openai/v1/chat/completions"
@@ -42,7 +49,15 @@ class GroqManager:
         if not self.api_keys: return
         old_key = self.current_key
         self.current_key = next(self.key_cycle)
+        self.requests_since_rotation = 0
+        
         add_log_line(f"🔄 Rotando API Key: ...{old_key[-4:]} -> ...{self.current_key[-4:]}")
+
+    def _check_preventive_rotation(self):
+        self.requests_since_rotation += 1
+        if self.requests_since_rotation >= self.ROTATION_LIMIT:
+            add_log_line(f"⚖️ Límite de {self.ROTATION_LIMIT} pedidos alcanzado. Rotación preventiva.")
+            self.rotate_key()
 
     async def get_response(self, messages, model=None, temperature=0.7):
         """
@@ -88,6 +103,7 @@ class GroqManager:
                         self.usage_stats[self.current_key] += 1
                         self.total_requests += 1
                         self._save_stats() # Guardar stats actualizado
+                        self._check_preventive_rotation()
                         return content
                     
                     elif response.status_code in [429, 500, 503]:
@@ -145,6 +161,7 @@ class GroqManager:
                     if response.status_code == 200:
                         self.usage_stats[self.current_key] += 1
                         self._save_stats()
+                        self._check_preventive_rotation()
                         return response.json().get("text", "")
                     
                     elif response.status_code in [429, 500, 503]:
