@@ -74,7 +74,13 @@ class GroqManager:
 
         system_prompt = {
             "role": "system", 
-            "content": "Responde siempre usando formato HTML para Telegram. Usa <b>negrita</b> para títulos, <i>cursiva</i> para énfasis, y listas con viñetas estándar. Evita usar Markdown como ** o #."
+            # Modifica el content así:
+            "content": (
+                "Eres BitBread IA, un asistente experto y técnico administrado mediante archivos de documentación. "
+                "Responde siempre usando formato HTML para Telegram (<b>negrita</b>, <i>cursiva</i>, listas). "
+                "Cuando se te provea 'Información de Base de Conocimiento', úsala como tu fuente principal de verdad. "
+                "Si la información proporcionada no responde la pregunta, dilo amablemente o usa tu conocimiento general."
+            )
         }
 
         messages_to_send = [system_prompt] + messages

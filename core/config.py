@@ -33,7 +33,10 @@ BOT_VERSION = "v_B-0.002"
 DATA_DIR = "data"
 LOG_FILE = "bot_activity.log"
 CONTEXT_FILE = os.path.join(DATA_DIR, "user_context.json")
+DOCS_DIR = os.path.join(DATA_DIR, "docs")
 
-# Asegurar que la carpeta data existe al importar la configuración
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
+
+if not os.path.exists(DOCS_DIR):
+    os.makedirs(DOCS_DIR)

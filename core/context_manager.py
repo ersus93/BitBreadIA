@@ -95,3 +95,28 @@ def get_user_model(user_id, default_model):
     data = _load_json(SETTINGS_FILE)
     str_id = str(user_id)
     return data.get(str_id, {}).get("model", default_model)
+
+def get_all_user_ids():
+    """Retorna una lista con los IDs de todos los usuarios que han hablado con el bot."""
+    # Combinamos usuarios del contexto y de settings para tener la lista más completa
+    context_data = _load_data()
+    settings_data = _load_json(SETTINGS_FILE)
+    
+    all_ids = set(context_data.keys()) | set(settings_data.keys())
+    return list(all_ids)
+
+def delete_user_data(user_id):
+    """Elimina datos de un usuario si bloquea el bot (Limpieza de DB)."""
+    str_id = str(user_id)
+    
+    # Borrar de contexto
+    c_data = _load_data()
+    if str_id in c_data:
+        del c_data[str_id]
+        _save_data(c_data)
+        
+    # Borrar de settings
+    s_data = _load_json(SETTINGS_FILE)
+    if str_id in s_data:
+        del s_data[str_id]
+        _save_json(SETTINGS_FILE, s_data)

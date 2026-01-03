@@ -4,6 +4,7 @@ from telegram import Update, constants
 from telegram.ext import ContextTypes
 from core.groq_manager import groq_ai
 from core.context_manager import add_message, get_user_context, get_user_model
+from core.knowledge_manager import knowledge_base
 from utils.logger import add_log_line
 
 DEFAULT_MODEL = os.getenv("MODEL_NAME", "llama3-8b-8192")
@@ -88,6 +89,35 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_model = get_user_model(user_id, DEFAULT_MODEL)
     ai_response = await groq_ai.get_response(messages, model=user_model)
 
+    # --- LÓGICA DE CONTEXTO LOCAL DATA ---
+    # 1. Buscamos información en los archivos .md
+    found_context = knowledge_base.get_relevant_context(user_text)
+    
+    # 2. Obtenemos el historial normal del chat
+    messages = get_user_context(user_id)
+    
+    # 3. Si encontramos info en los docs, la inyectamos en el ÚLTIMO mensaje para la IA
+    # (Esto no se guarda en la DB del usuario para no ensuciar el historial, solo se envía a Groq)
+    messages_to_send = messages.copy() # Hacemos una copia para no alterar el original
+    
+    if found_context:
+        # Modificamos el último mensaje de la copia para incluir la info encontrada
+        last_msg = messages_to_send[-1]
+        new_content = (
+            f"{found_context}\n\n"
+            f"Instrucción: Usa la información de arriba para responder la siguiente pregunta del usuario. "
+            f"Si la información no es suficiente, responde con tu conocimiento general.\n\n"
+            f"Pregunta del usuario: {last_msg['content']}"
+        )
+        messages_to_send[-1] = {"role": "user", "content": new_content}
+        
+        add_log_line(f"📚 Contexto inyectado para usuario {user_id}")
+
+    user_model = get_user_model(user_id, DEFAULT_MODEL)
+    
+    # OJO: Aquí cambiamos 'messages' por 'messages_to_send'
+    ai_response = await groq_ai.get_response(messages_to_send, model=user_model)    
+   
     # 4. Guardar respuesta y enviar
     add_message(user_id, "assistant", ai_response)
     try:

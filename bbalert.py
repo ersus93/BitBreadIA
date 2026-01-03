@@ -12,7 +12,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, Cal
 # Importar handlers
 from handlers.general import start, newchat
 from handlers.chat import chat_handler
-from handlers.admin import logs_command, ms_command
+from handlers.admin import logs_command, ms_handler
 from utils.logger import add_log_line
 from handlers.models import models_command, models_callback
 
@@ -44,31 +44,34 @@ def main():
     # Construir aplicación
     app = ApplicationBuilder().token(TOKEN).build()
 
-    # --- REGISTRO DE HANDLERS ---
+    # --- REGISTRO DE HANDLERS (ORDEN CORREGIDO) ---
     
-    # Comandos Generales
+    # 1. Comandos Generales
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("newchat", newchat))
     app.add_handler(CommandHandler("models", models_command))
     
-    # Handler de Botones (Callbacks del menú)
-    app.add_handler(CallbackQueryHandler(models_callback))
+    # 2. Handlers de Conversación (ADMIN) - PRIORIDAD ALTA
+    # IMPORTANTE: Esto debe ir ANTES de cualquier CallbackQueryHandler global
+    app.add_handler(ms_handler) 
+
+    # 3. Handler de Botones (Menú de Modelos)
+    # IMPORTANTE: Añadimos 'pattern' para que SOLO reaccione a botones de modelos
+    # y deje pasar los botones del comando /ms u otros futuros.
+    app.add_handler(CallbackQueryHandler(models_callback, pattern="^set_model\|"))
     
-    # Comandos Admin
+    # 4. Otros comandos admin
     app.add_handler(CommandHandler("logs", logs_command))
-    app.add_handler(CommandHandler("ms", ms_command))
-    
-    # Handler de Chat (Texto, Voz y Audio)
-    # Tu filtro actual ya es correcto:
+
+    # 5. Handler de chat general (Este debe ir al FINAL)
     chat_filter = (filters.TEXT | filters.VOICE | filters.AUDIO) & (~filters.COMMAND)
     app.add_handler(MessageHandler(chat_filter, chat_handler))
 
-    # --- NUEVO: Registrar el manejador de errores ---
+    # --- Registrar el manejador de errores ---
     app.add_error_handler(error_handler)
 
     print("✅ Bot iniciado correctamente.")
     
-    # Ejecutar polling permitiendo reconexiones automáticas
     app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
 
 if __name__ == '__main__':
