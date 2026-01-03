@@ -59,7 +59,7 @@ class GroqManager:
             add_log_line(f"⚖️ Límite de {self.ROTATION_LIMIT} pedidos alcanzado. Rotación preventiva.")
             self.rotate_key()
 
-    async def get_response(self, messages, model=None, temperature=0.7):
+    async def get_response(self, messages, model=None, temperature=0.3):
         """
         Ahora acepta un parámetro 'model'. Si es None, usa self.model (el del .env).
         """
@@ -74,12 +74,11 @@ class GroqManager:
 
         system_prompt = {
             "role": "system", 
-            # Modifica el content así:
             "content": (
-                "Eres BitBread IA, un asistente experto y técnico administrado mediante archivos de documentación. "
-                "Responde siempre usando formato HTML para Telegram (<b>negrita</b>, <i>cursiva</i>, listas). "
-                "Cuando se te provea 'Información de Base de Conocimiento', úsala como tu fuente principal de verdad. "
-                "Si la información proporcionada no responde la pregunta, dilo amablemente o usa tu conocimiento general."
+                "Eres BitBread IA. Tu misión es actuar como un asistente híbrido: "
+                "1. Si se te proporciona 'INFORMACIÓN OFICIAL' o contexto técnico, actúa como un experto estricto en ese dominio (BitBread/HACCP) y basa tu respuesta en esos datos. "
+                "2. Si NO se proporciona contexto o la pregunta es general (saludos, cultura, código general), actúa como una IA útil, amable y experta en tecnología. "
+                "Siempre responde usando formato HTML para Telegram (<b>negrita</b>, <i>cursiva</i>, listas)."
             )
         }
 

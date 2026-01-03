@@ -98,20 +98,28 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     # 3. Si encontramos info en los docs, la inyectamos en el ÚLTIMO mensaje para la IA
     # (Esto no se guarda en la DB del usuario para no ensuciar el historial, solo se envía a Groq)
-    messages_to_send = messages.copy() # Hacemos una copia para no alterar el original
+    messages_to_send = messages.copy() 
     
     if found_context:
-        # Modificamos el último mensaje de la copia para incluir la info encontrada
         last_msg = messages_to_send[-1]
+        
+        # PROMPT DE INGENIERÍA MEJORADO PARA MODO EXPERTO
         new_content = (
             f"{found_context}\n\n"
-            f"Instrucción: Usa la información de arriba para responder la siguiente pregunta del usuario. "
-            f"Si la información no es suficiente, responde con tu conocimiento general.\n\n"
-            f"Pregunta del usuario: {last_msg['content']}"
+            f"⚠️ MODO EXPERTO ACTIVADO:\n"
+            f"La información de arriba es tu FUENTE DE VERDAD. Úsala para responder.\n"
+            f"• Si la pregunta es sobre ONARC, BitBread o HACCP, cíñete estrictamente al texto proporcionado.\n"
+            f"• Si la información no aparece en el contexto, di amablemente: 'No tengo esa información en mis manuales oficiales'.\n\n"
+            f"👤 Pregunta del usuario: {last_msg['content']}"
         )
-        messages_to_send[-1] = {"role": "user", "content": new_content}
         
-        add_log_line(f"📚 Contexto inyectado para usuario {user_id}")
+        messages_to_send[-1] = {"role": "user", "content": new_content}
+        add_log_line(f"📚 Contexto BitBread/HACCP inyectado para usuario {user_id}")
+    else:
+        # LÓGICA DE IA GENERAL
+        # No modificamos el mensaje, dejamos que pase limpio a Groq.
+        # Pero añadimos un log para saber que está actuando libremente.
+        add_log_line(f"🌍 Modo General (Sin contexto local) para: {user_text[:30]}...")
 
     user_model = get_user_model(user_id, DEFAULT_MODEL)
     
