@@ -112,17 +112,17 @@ class GroqManager:
                         return content
                     
                     elif response.status_code in [429, 500, 503]:
-                        add_log_line(f"⚠️ Error {response.status_code}. Rotando key...")
+                        add_log_line("¡Ups!", level="ERROR", error=e)
                         self.rotate_key()
                         attempts += 1
                     
                     else:
                         error_msg = f"Error API Groq {response.status_code}: {response.text}"
-                        add_log_line(error_msg)
+                        add_log_line("¡Ups!", level="ERROR", error=e)
                         return f"⚠️ Error de API: {response.status_code}"
 
                 except Exception as e:
-                    add_log_line(f"❌ Excepción en GroqManager: {e}")
+                    add_log_line("¡Ups!", level="ERROR", error=e)
                     self.rotate_key()
                     attempts += 1
 
@@ -170,15 +170,15 @@ class GroqManager:
                         return response.json().get("text", "")
                     
                     elif response.status_code in [429, 500, 503]:
-                        add_log_line(f"⚠️ Error {response.status_code} en Transcripción. Rotando key...")
+                        add_log_line("¡Ups!", level="ERROR", error=e)
                         self.rotate_key()
                         attempts += 1
                     else:
-                        add_log_line(f"❌ Error API Audio {response.status_code}: {response.text}")
+                        add_log_line("¡Ups!", level="ERROR", error=e)
                         return None
 
                 except Exception as e:
-                    add_log_line(f"❌ Excepción en Transcripción: {e}")
+                    add_log_line("¡Ups!", level="ERROR", error=e)
                     self.rotate_key()
                     attempts += 1
 
@@ -220,7 +220,7 @@ class GroqManager:
                     
             add_log_line("📈 Estadísticas cargadas correctamente.")
         except Exception as e:
-            add_log_line(f"⚠️ Error cargando estadísticas: {e}")
+            add_log_line("¡Ups!", level="ERROR", error=e)
 
     def _save_stats(self):
         """Guarda las estadísticas actuales en JSON."""
@@ -235,7 +235,7 @@ class GroqManager:
             with open(stats_file, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2)
         except Exception as e:
-            print(f"Error guardando stats: {e}")
+            add_log_line("¡Ups!", level="ERROR", error=e)
 
 
 groq_ai = GroqManager()

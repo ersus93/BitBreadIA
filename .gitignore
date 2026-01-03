@@ -1,0 +1,20 @@
+# Archivos de entorno - ¡MUY IMPORTANTE!
+apit.env
+.env
+venv/
+.venv/
+env/
+*.env
+
+
+data/docs/
+
+# Caché de Python y archivos compilados
+__pycache__/
+*.pyc
+
+# Carpetas de entorno virtual
+
+
+# Configuraciones específicas de VS Code
+.vscode/

@@ -4,6 +4,7 @@ import math
 from collections import Counter
 from core.config import DOCS_DIR
 from unidecode import unidecode
+from utils.logger import add_log_line
 
 class KnowledgeManager:
     def __init__(self):
@@ -11,6 +12,7 @@ class KnowledgeManager:
         # Cargamos los documentos al iniciar
         self.docs_cache = self._read_all_docs() 
         print(f"📚 Base de Conocimiento cargada: {len(self.docs_cache)} fragmentos activos.")
+        
 
     def _clean_text(self, text):
         """Limpia texto normalizando acentos y caracteres especiales."""

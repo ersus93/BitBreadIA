@@ -19,13 +19,25 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     temp_file_path = None
 
     # 1. Obtener el contenido (Texto o Audio)
-    if update.message.text:
-        user_text = update.message.text
-    elif update.message.voice or update.message.audio:
+    msg = update.effective_message 
+    
+    # Si por alguna razón msg es None (ej: actualización de estado), salimos.
+    if not msg:
+        return
+
+    user_text = ""
+    temp_file_path = None
+
+    # 1. Obtener el contenido (Texto o Audio) usando 'msg' en vez de 'update.message'
+    if msg.text:
+        user_text = msg.text
+    elif msg.voice or msg.audio:
+
         # --- Lógica de Audio (Se mantiene igual) ---
         try:
             await context.bot.send_chat_action(chat_id=chat_id, action=constants.ChatAction.RECORD_VOICE, message_thread_id=thread_id)
-            voice = update.message.voice or update.message.audio
+            # Usamos 'msg'
+            voice = msg.voice or msg.audio 
             file_obj = await context.bot.get_file(voice.file_id)
             with tempfile.NamedTemporaryFile(delete=False, suffix=".m4a") as temp_file:
                 temp_file_path = temp_file.name
@@ -34,9 +46,10 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             if not transcription:
                 return # Si no hay transcripción, no respondemos
             user_text = transcription
-            await update.message.reply_text(f"🎤 <i>Transcripción:</i> \"{user_text}\"", parse_mode="HTML")
+            # Usamos 'msg' para responder
+            await msg.reply_text(f"🎤 <i>Transcripción:</i> \"{user_text}\"", parse_mode="HTML")
         except Exception as e:
-            add_log_line(f"Error audio: {e}")
+            add_log_line("¡Ups!", level="ERROR", error=e)
             return
         finally:
             if temp_file_path and os.path.exists(temp_file_path):
@@ -54,9 +67,9 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     is_mentioned = bot_username in user_text
     is_reply_to_bot = False
     
-    if update.message.reply_to_message:
+    if msg.reply_to_message:
         # Verificamos si el mensaje al que responden es del bot
-        is_reply_to_bot = update.message.reply_to_message.from_user.id == bot_user.id
+        is_reply_to_bot = msg.reply_to_message.from_user.id == bot_user.id
 
     # Si NO es privado Y NO me mencionan Y NO me están respondiendo... ignoramos.
     if not is_private and not is_mentioned and not is_reply_to_bot:
@@ -64,8 +77,8 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # --------------------------------------------
 
     # --- LÓGICA DE CONTEXTO DE RESPUESTA (Se mantiene igual) ---
-    if update.message.reply_to_message:
-        original_msg = update.message.reply_to_message
+    if msg.reply_to_message:   
+        original_msg = msg.reply_to_message 
         original_text = original_msg.text or original_msg.caption or "[Archivo]"
         original_author = original_msg.from_user.first_name if original_msg.from_user else "Usuario"
         
@@ -81,7 +94,7 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         await context.bot.send_chat_action(chat_id=chat_id, action=constants.ChatAction.TYPING, message_thread_id=thread_id)
     except Exception as e:
-        add_log_line(f"Error chat_action: {e}")
+        add_log_line("¡Ups! Falló la lectura del mensaje", level="ERROR", error=e)
 
     # 3. Guardar mensaje y obtener respuesta de Groq
     add_message(user_id, "user", user_text)
@@ -114,7 +127,7 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         
         messages_to_send[-1] = {"role": "user", "content": new_content}
-        add_log_line(f"📚 Contexto BitBread/HACCP inyectado para usuario {user_id}")
+        add_log_line("¡Ups! Falló la lectura del mensaje", level="ERROR", error=e)
     else:
         # LÓGICA DE IA GENERAL
         # No modificamos el mensaje, dejamos que pase limpio a Groq.
@@ -129,6 +142,6 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 4. Guardar respuesta y enviar
     add_message(user_id, "assistant", ai_response)
     try:
-        await update.message.reply_text(ai_response, parse_mode=constants.ParseMode.HTML)
+        await msg.reply_text(ai_response, parse_mode=constants.ParseMode.HTML) # <--- Usar msg
     except Exception:
-        await update.message.reply_text(ai_response)
+        await msg.reply_text(ai_response)
