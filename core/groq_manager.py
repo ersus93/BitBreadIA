@@ -112,17 +112,20 @@ class GroqManager:
                         return content
                     
                     elif response.status_code in [429, 500, 503]:
-                        add_log_line("¡Ups!", level="ERROR", error=e)
+                        # --- MODIFICACIÓN: Quitar 'error=e' porque 'e' no existe aquí ---
+                        add_log_line(f"⚠️ API Groq inestable ({response.status_code}). Rotando key...", level="WARNING")
                         self.rotate_key()
                         attempts += 1
                     
                     else:
                         error_msg = f"Error API Groq {response.status_code}: {response.text}"
-                        add_log_line("¡Ups!", level="ERROR", error=e)
+                        # --- MODIFICACIÓN: Quitar 'error=e' aquí también ---
+                        add_log_line(error_msg, level="ERROR") 
                         return f"⚠️ Error de API: {response.status_code}"
 
                 except Exception as e:
-                    add_log_line("¡Ups!", level="ERROR", error=e)
+                    # AQUÍ SÍ EXISTE 'e', ESTO ESTÁ BIEN
+                    add_log_line("¡Ups! Excepción en conexión", level="ERROR", error=e)
                     self.rotate_key()
                     attempts += 1
 

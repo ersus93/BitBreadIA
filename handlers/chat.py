@@ -28,9 +28,11 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_text = ""
     temp_file_path = None
 
-    # 1. Obtener el contenido (Texto o Audio) usando 'msg' en vez de 'update.message'
+    # --- MODIFICACIÓN 1: Soporte para Caption (Msj Reenviados con foto) ---
     if msg.text:
         user_text = msg.text
+    elif msg.caption: 
+        user_text = msg.caption
     elif msg.voice or msg.audio:
 
         # --- Lógica de Audio (Se mantiene igual) ---
@@ -127,11 +129,9 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         
         messages_to_send[-1] = {"role": "user", "content": new_content}
-        add_log_line("¡Ups! Falló la lectura del mensaje", level="ERROR", error=e)
+                
+        add_log_line(f"📚 Contexto inyectado ({len(found_context)} chars). Usando Modo Experto.")
     else:
-        # LÓGICA DE IA GENERAL
-        # No modificamos el mensaje, dejamos que pase limpio a Groq.
-        # Pero añadimos un log para saber que está actuando libremente.
         add_log_line(f"🌍 Modo General (Sin contexto local) para: {user_text[:30]}...")
 
     user_model = get_user_model(user_id, DEFAULT_MODEL)

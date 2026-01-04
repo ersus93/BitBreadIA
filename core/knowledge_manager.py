@@ -129,7 +129,7 @@ class KnowledgeManager:
                 if match_percentage > 0.6: 
                     score = score * 1.5
 
-            if score > 30:
+            if score > 50:
                 scored_chunks.append((score, chunk))
 
         scored_chunks.sort(key=lambda x: x[0], reverse=True)
