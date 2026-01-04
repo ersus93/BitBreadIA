@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 # Cargar el archivo .env
 load_dotenv()
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # --- CONFIGURACIÓN DE TELEGRAM ---
 TOKEN_TELEGRAM = os.getenv("TELEGRAM_TOKEN")
@@ -26,7 +27,7 @@ MODEL_NAME = os.getenv("MODEL_NAME", "llama3-8b-8192")
 # --- PARÁMETROS DEL BOT ---
 # Límite de mensajes que el bot recordará por usuario (contexto)
 MAX_HISTORY = int(os.getenv("MAX_HISTORY", 15))
-BOT_VERSION = "v_B-0.002"
+# BOT_VERSION = "v_B-0.002"
 
 # --- RUTAS DE ARCHIVOS ---
 # Carpeta para base de datos JSON y Logs
@@ -40,3 +41,10 @@ if not os.path.exists(DATA_DIR):
 
 if not os.path.exists(DOCS_DIR):
     os.makedirs(DOCS_DIR)
+
+try:
+    with open(os.path.join(BASE_DIR, "version.txt"), "r") as f:
+        BOT_VERSION = f.read().strip()
+except Exception as e:
+    print(f"⚠️ No se pudo leer version.txt: {e}")
+    BOT_VERSION = "0.0.00"

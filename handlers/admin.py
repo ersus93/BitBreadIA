@@ -3,7 +3,7 @@ import html
 from telegram import Update, constants, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes, ConversationHandler, CommandHandler, MessageHandler, CallbackQueryHandler, filters
 from core.groq_manager import groq_ai
-from core.config import ADMIN_CHAT_IDS
+from core.config import ADMIN_CHAT_IDS, BOT_VERSION
 from core.context_manager import get_all_user_ids
 from utils.logger import get_last_logs
 from utils.broadcaster import broadcast_message
@@ -35,6 +35,7 @@ async def logs_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # 4. Unimos todo
         final_message = (
+            f"🤖 <b>BitBread IA:</b><i> v{BOT_VERSION}</i>\n\n"
             f"{stats_text}\n"
             f"📝 <b>Últimos Logs:</b>\n"
             f"<pre>{escaped_logs}</pre>"
