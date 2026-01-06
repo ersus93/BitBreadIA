@@ -103,8 +103,22 @@ class GroqManager:
                     # 1. ÉXITO
                     if response.status_code == 200:
                         data = response.json()
-                        content = data['choices'][0]['message']['content']                 
-                        # ... (limpieza de regex se mantiene igual) ...
+                        content = data['choices'][0]['message']['content']   
+                                      
+                        # --- INICIO FORMATEO MARKDOWN A HTML TELEGRAM ---
+                        # 1. Negrita: **texto** -> <b>texto</b>
+                        content = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', content)                        
+                        # 2. Encabezados: ### Texto -> <b>Texto</b> (Telegram no soporta h1-h3, usamos negrita)
+                        content = re.sub(r'#{1,6}\s+(.*?)$', r'<b>\1</b>', content, flags=re.MULTILINE)                        
+                        # 3. Listas: * item o - item -> • item (Mejora visual)
+                        content = re.sub(r'(?m)^[\*\-]\s+', '• ', content)                        
+                        # 4. Código inline: `texto` -> <code>texto</code>
+                        content = re.sub(r'`([^`\n]+)`', r'<code>\1</code>', content)                        
+                        # 5. Bloques de código: ```python ... ``` -> <pre><code> ... </code></pre>
+                        # Nota: Esto es básico. Si el modelo envía ```python, Telegram a veces requiere <pre><code class="language-python">
+                        # Para simplificar y evitar errores de parseo, usamos pre+code genérico:
+                        content = re.sub(r'```(\w+)?\n(.*?)```', r'<pre><code>\2</code></pre>', content, flags=re.DOTALL)
+                        # --- FIN FORMATEO ---
                         
                         self.usage_stats[self.current_key] += 1
                         self.total_requests += 1
