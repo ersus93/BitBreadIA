@@ -96,6 +96,24 @@ def get_user_model(user_id, default_model):
     str_id = str(user_id)
     return data.get(str_id, {}).get("model", default_model)
 
+def set_user_agent(user_id, agent_id):
+    """Guarda el modo de agente (general, haccp, bitbread)."""
+    data = _load_json(SETTINGS_FILE)
+    str_id = str(user_id)
+    
+    if str_id not in data:
+        data[str_id] = {}
+    
+    data[str_id]["agent"] = agent_id
+    _save_json(SETTINGS_FILE, data)
+
+def get_user_agent(user_id):
+    """Obtiene el agente actual. Por defecto: 'general'."""
+    data = _load_json(SETTINGS_FILE)
+    str_id = str(user_id)
+    # Por defecto devolvemos 'general' si no ha elegido nada
+    return data.get(str_id, {}).get("agent", "general")
+
 def get_all_user_ids():
     """Retorna una lista con los IDs de todos los usuarios que han hablado con el bot."""
     # Combinamos usuarios del contexto y de settings para tener la lista más completa

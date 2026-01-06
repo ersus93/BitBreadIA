@@ -15,6 +15,7 @@ from handlers.chat import chat_handler
 from handlers.admin import logs_command, ms_handler
 from utils.logger import add_log_line
 from handlers.models import models_command, models_callback
+from handlers.agents import agents_command, agents_callback
 
 # Cargar entorno
 load_dotenv()
@@ -50,6 +51,7 @@ def main():
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("newchat", newchat))
     app.add_handler(CommandHandler("models", models_command))
+    app.add_handler(CommandHandler("agent", agents_command))
     
     # 2. Handlers de Conversación (ADMIN) - PRIORIDAD ALTA
     # IMPORTANTE: Esto debe ir ANTES de cualquier CallbackQueryHandler global
@@ -59,6 +61,7 @@ def main():
     # IMPORTANTE: Añadimos 'pattern' para que SOLO reaccione a botones de modelos
     # y deje pasar los botones del comando /ms u otros futuros.
     app.add_handler(CallbackQueryHandler(models_callback, pattern="^set_model\|"))
+    app.add_handler(CallbackQueryHandler(agents_callback, pattern="^set_agent\||^close_menu"))
     
     # 4. Otros comandos admin
     app.add_handler(CommandHandler("logs", logs_command))

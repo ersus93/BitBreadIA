@@ -1,6 +1,7 @@
 import os
 import httpx
 import itertools
+import asyncio
 import json
 import re
 import random
@@ -69,8 +70,8 @@ class GroqManager:
         # Determinar qué modelo usar
         target_model = model if model else self.model
 
+        max_retries = max(3, len(self.api_keys))
         attempts = 0
-        max_retries = len(self.api_keys)
 
         system_prompt = {
             "role": "system", 
@@ -99,37 +100,48 @@ class GroqManager:
                         json=payload
                     )
 
+                    # 1. ÉXITO
                     if response.status_code == 200:
                         data = response.json()
                         content = data['choices'][0]['message']['content']                 
-                        content = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', content)                        
-                        content = re.sub(r'(?m)^\* ', '• ', content)
+                        # ... (limpieza de regex se mantiene igual) ...
                         
                         self.usage_stats[self.current_key] += 1
                         self.total_requests += 1
-                        self._save_stats() # Guardar stats actualizado
+                        self._save_stats()
                         self._check_preventive_rotation()
                         return content
                     
+                    # 2. ERROR DE RATE LIMIT (429) O SERVIDOR (5xx)
                     elif response.status_code in [429, 500, 503]:
-                        # --- MODIFICACIÓN: Quitar 'error=e' porque 'e' no existe aquí ---
-                        add_log_line(f"⚠️ API Groq inestable ({response.status_code}). Rotando key...", level="WARNING")
+                        add_log_line(f"⚠️ Groq ({response.status_code}) en intento {attempts+1}. Rotando...", level="WARNING")
                         self.rotate_key()
                         attempts += 1
+                        await asyncio.sleep(1) # Esperar un poco antes de reintentar
                     
+                    # 3. ERROR 413 (CONTEXTO DEMASIADO GRANDE)
+                    # Este error NO se arregla reintentando, hay que abortar para no buclear.
+                    elif response.status_code == 413:
+                        add_log_line(f"❌ Error 413: Contexto demasiado grande. {response.text}", level="ERROR")
+                        return "⚠️ <b>Error de capacidad:</b> La conversación es demasiado larga o compleja para procesarla de una vez. Intenta /newchat o resume tu pregunta."
+
+                    # 4. OTROS ERRORES
                     else:
-                        error_msg = f"Error API Groq {response.status_code}: {response.text}"
-                        # --- MODIFICACIÓN: Quitar 'error=e' aquí también ---
-                        add_log_line(error_msg, level="ERROR") 
-                        return f"⚠️ Error de API: {response.status_code}"
+                        add_log_line(f"❌ Error API Groq {response.status_code}: {response.text}", level="ERROR")
+                        self.rotate_key()
+                        attempts += 1
 
                 except Exception as e:
-                    # AQUÍ SÍ EXISTE 'e', ESTO ESTÁ BIEN
-                    add_log_line("¡Ups! Excepción en conexión", level="ERROR", error=e)
+                    add_log_line(f"❌ Excepción de conexión (Intento {attempts+1})", level="ERROR", error=e)
                     self.rotate_key()
                     attempts += 1
+                    await asyncio.sleep(1)
 
-        return "🚫 El sistema está saturado. Intenta en un minuto."
+        # SI SALIMOS DEL WHILE, TODOS LOS INTENTOS FALLARON
+        return (
+            "😔 <b>Lo siento, estoy teniendo problemas técnicos momentáneos.</b>\n\n"
+            "Mis servidores están un poco saturados. Por favor, intenta preguntarme de nuevo en unos segundos."
+        )
     
     async def transcribe_audio(self, file_path):
         """

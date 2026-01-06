@@ -27,73 +27,81 @@ class KnowledgeManager:
 
         print(f"📚 Indexando base de conocimiento desde: {self.docs_path}")
         
-        file_count = 0
         for root, dirs, files in os.walk(self.docs_path):
+            # Detectar nombre de la carpeta actual
+            # Si estamos en data/docs/HACCP, folder_name será "HACCP"
+            # Si estamos en data/docs, folder_name será "docs" (o lo que sea el root)
+            folder_name = os.path.basename(root)
+            
+            # Si la carpeta es la raíz de documentos, lo tratamos como 'general' o 'root'
+            # (Opcional: ajusta esto según tu preferencia, aquí asumo que subcarpetas = categorias)
+            is_root = os.path.abspath(root) == os.path.abspath(self.docs_path)
+            category = "root" if is_root else folder_name
+
             for file in files:
-                # CORRECCIÓN: Usar lower() para aceptar .MD, .md, .TXT, .txt
                 if file.lower().endswith((".md", ".txt")):
+                    file_path = os.path.join(root, file)
                     try:
-                        file_path = os.path.join(root, file)
-                        # Debug visual para confirmar qué archivos lee
-                        print(f"   -> Leyendo: {file}") 
-                        
-                        with open(file_path, "r", encoding="utf-8", errors='ignore') as f:
+                        with open(file_path, "r", encoding="utf-8") as f:
                             content = f.read()
-                        
-                        file_chunks = self._create_chunks(content, file)
-                        chunks_db.extend(file_chunks)
-                        file_count += 1
-                        
+                            # Guardamos la categoría en el diccionario del chunk
+                            chunks_db.append({
+                                "content": self._clean_text(content), 
+                                "original_content": content,
+                                "filename": file,
+                                "folder": category  # <--- NUEVO CAMPO IMPORTANTE
+                            })
                     except Exception as e:
-                        print(f"❌ Error leyendo {file}: {e}")
+                        add_log_line(f"Error leyendo {file}: {e}")
         
-        print(f"✅ Indexación completa: {file_count} archivos leídos, {len(chunks_db)} fragmentos generados.")
         return chunks_db
     
-    def _create_chunks(self, text, filename, chunk_size=1000): # Aumenté un poco el tamaño del chunk
-        """
-        Divide el texto en fragmentos (chunks) lógicos.
-        """
+    def _create_chunks(self, text, filename, chunk_size=800, category="general"):
         paragraphs = re.split(r'\n\s*\n', text)
         chunks = []
         current_chunk = ""
         
-        for para in paragraphs:
-            if len(current_chunk) + len(para) < chunk_size:
-                current_chunk += "\n\n" + para
+        for p in paragraphs:
+            if len(current_chunk) + len(p) < chunk_size:
+                current_chunk += p + "\n\n"
             else:
-                if current_chunk.strip():
+                if current_chunk:                    
+                    content_str = current_chunk.strip()
                     chunks.append({
-                        "filename": filename,
-                        "content": current_chunk.strip(),
-                        "clean_content": self._clean_text(current_chunk)
+                        'content': content_str,
+                        'clean_content': self._clean_text(content_str),
+                        'filename': filename,
+                        'category': category 
                     })
-                current_chunk = para
+                current_chunk = p + "\n\n"
         
-        if current_chunk.strip():
+        if current_chunk:
+            content_str = current_chunk.strip()
             chunks.append({
-                "filename": filename,
-                "content": current_chunk.strip(),
-                "clean_content": self._clean_text(current_chunk)
+                'content': content_str,
+                'clean_content': self._clean_text(content_str),
+                'filename': filename,
+                'category': category
             })
             
         return chunks
 
-    def get_relevant_context(self, query):
+    def get_relevant_context(self, query, filter_category=None):
         """
         Busca los fragmentos más relevantes.
         """
         query_clean = self._clean_text(query)
-        stopwords = {'el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'y', 'o', 'que', 'en', 'por', 'para', 'con', 'se', 'su', 'es', 'al', 'lo', 'como', 'mas', 'pero', 'hola', 'buenos', 'dias'}
+        #stopwords = {'el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'y', 'o', 'que', 'en', 'por', 'para', 'con', 'se', 'su', 'es', 'al', 'lo', 'como', 'mas', 'pero', 'hola', 'buenos', 'dias'}
         
-        query_words = [w for w in query_clean.split() if w not in stopwords and len(w) > 2]
-        
+        query_words = self._clean_text(query).split()
         if not query_words:
             return ""
 
         scored_chunks = []
 
         for chunk in self.docs_cache:
+            if filter_category and chunk.get('folder') != filter_category:
+                continue
             score = 0
             chunk_content = chunk["clean_content"]
             chunk_filename = chunk["filename"].lower()
@@ -135,7 +143,7 @@ class KnowledgeManager:
         scored_chunks.sort(key=lambda x: x[0], reverse=True)
         
         # Aumentamos a Top 4 para dar más contexto al LLM
-        top_chunks = scored_chunks[:4]
+        top_chunks = scored_chunks[:3]
 
         if not top_chunks:
             print(f"🔍 Búsqueda para '{query}': No se encontró contexto relevante.")
@@ -145,9 +153,17 @@ class KnowledgeManager:
         # Debug para ver qué archivos está seleccionando
         print(f"   📂 Archivos seleccionados: {[x[1]['filename'] for x in top_chunks]}")
 
+        MAX_CONTEXT_CHARS = 6000
+        current_chars = 0
         context_text = "\n--- INFORMACIÓN OFICIAL DE LA BASE DE CONOCIMIENTO ---\n"
+        
         for score, doc in top_chunks:
+            # Si añadir este chunk supera el límite, paramos.
+            if current_chars + len(doc['content']) > MAX_CONTEXT_CHARS:
+                break
+                
             context_text += f"📄 FUENTE: {doc['filename']}\n{doc['content']}\n\n"
+            current_chars += len(doc['content'])
         
         return context_text
 

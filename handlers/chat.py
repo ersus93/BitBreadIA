@@ -3,7 +3,8 @@ import tempfile
 from telegram import Update, constants
 from telegram.ext import ContextTypes
 from core.groq_manager import groq_ai
-from core.context_manager import add_message, get_user_context, get_user_model
+from core.context_manager import add_message, get_user_context, get_user_model, get_user_agent
+from handlers.agents import AGENTS
 from core.knowledge_manager import knowledge_base
 from utils.logger import add_log_line
 
@@ -98,50 +99,65 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         add_log_line("¡Ups! Falló la lectura del mensaje", level="ERROR", error=e)
 
-    # 3. Guardar mensaje y obtener respuesta de Groq
+    # 3. Guardar mensaje y preparar envío
     add_message(user_id, "user", user_text)
     messages = get_user_context(user_id)
-    user_model = get_user_model(user_id, DEFAULT_MODEL)
-    ai_response = await groq_ai.get_response(messages, model=user_model)
+    
+    # --- INICIO LÓGICA AGENTES (Corregida: Flujo Único) ---
+    current_agent_id = get_user_agent(user_id)
+    agent_config = AGENTS.get(current_agent_id, AGENTS["general"])
+    target_folder = agent_config.get("folder")
+    
+    found_context = ""
+    messages_to_send = messages.copy() # Preparamos la copia aquí
 
-    # --- LÓGICA DE CONTEXTO LOCAL DATA ---
-    # 1. Buscamos información en los archivos .md
-    found_context = knowledge_base.get_relevant_context(user_text)
-    
-    # 2. Obtenemos el historial normal del chat
-    messages = get_user_context(user_id)
-    
-    # 3. Si encontramos info en los docs, la inyectamos en el ÚLTIMO mensaje para la IA
-    # (Esto no se guarda en la DB del usuario para no ensuciar el historial, solo se envía a Groq)
-    messages_to_send = messages.copy() 
-    
-    if found_context:
-        last_msg = messages_to_send[-1]
+    # b) Lógica de inyección según agente
+    if current_agent_id == "general":
+        add_log_line(f"🌍 Modo General activado. Saltando búsqueda local.")
+        # No buscamos nada, messages_to_send se queda igual (solo historial)
         
-        # PROMPT DE INGENIERÍA MEJORADO PARA MODO EXPERTO
-        new_content = (
-            f"{found_context}\n\n"
-            f"⚠️ MODO EXPERTO ACTIVADO:\n"
-            f"La información de arriba es tu FUENTE DE VERDAD. Úsala para responder.\n"
-            f"• Si la pregunta es sobre ONARC, BitBread o HACCP, cíñete estrictamente al texto proporcionado.\n"
-            f"• Si la información no aparece en el contexto, di amablemente: 'No tengo esa información en mis manuales oficiales'.\n\n"
-            f"👤 Pregunta del usuario: {last_msg['content']}"
-        )
-        
-        messages_to_send[-1] = {"role": "user", "content": new_content}
-                
-        add_log_line(f"📚 Contexto inyectado ({len(found_context)} chars). Usando Modo Experto.")
     else:
-        add_log_line(f"🌍 Modo General (Sin contexto local) para: {user_text[:30]}...")
+        # Es un agente especialista
+        add_log_line(f"🔍 Agente {current_agent_id} buscando en carpeta: {target_folder}")
+        # IMPORTANTE: Asegúrate de que knowledge_base.get_relevant_context soporte 'folder_filter' o revisa knowledge_manager.py
+        # Si tu knowledge_manager usa 'filter_category', mantén eso.
+        found_context = knowledge_base.get_relevant_context(user_text, filter_category=target_folder)
+        
+        if found_context:
+            system_instruction = (
+                f"⚠️ ACTUANDO COMO AGENTE ESPECIALISTA: {agent_config['name']}\n"
+                f"Usa EXCLUSIVAMENTE la siguiente información oficial para responder.\n"
+                f"Si la respuesta no está en el texto, indícalo claramente.\n\n"
+            )
+            
+            # Inyectamos contexto en el último mensaje
+            last_msg = messages_to_send[-1]
+            new_content = (
+                f"{found_context}\n\n"
+                f"{system_instruction}"
+                f"👤 Pregunta del usuario: {last_msg['content']}"
+            )
+            messages_to_send[-1] = {"role": "user", "content": new_content}
+            add_log_line(f"📚 Contexto inyectado ({len(found_context)} chars).")
 
+    # --- LLAMADA A LA API (Única vez) ---
     user_model = get_user_model(user_id, DEFAULT_MODEL)
     
-    # OJO: Aquí cambiamos 'messages' por 'messages_to_send'
+    # Usamos messages_to_send que ya contiene (o no) el contexto del agente
     ai_response = await groq_ai.get_response(messages_to_send, model=user_model)    
    
-    # 4. Guardar respuesta y enviar
+    # 4. Guardar respuesta
     add_message(user_id, "assistant", ai_response)
     try:
-        await msg.reply_text(ai_response, parse_mode=constants.ParseMode.HTML) # <--- Usar msg
-    except Exception:
+        if len(ai_response) > 4000:
+            # Dividir en trozos de 4000
+            chunks = [ai_response[i:i+4000] for i in range(0, len(ai_response), 4000)]
+            for chunk in chunks:
+                await msg.reply_text(chunk, parse_mode=constants.ParseMode.HTML)
+        else:
+            await msg.reply_text(ai_response, parse_mode=constants.ParseMode.HTML)
+
+    except Exception as e:
+        # Fallback por si el HTML está mal formateado (pasa a veces con modelos LLM)
+        add_log_line(f"⚠️ Error enviando mensaje (posible HTML roto): {e}")
         await msg.reply_text(ai_response)
