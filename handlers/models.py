@@ -10,7 +10,8 @@ DEFAULT_MODEL = os.getenv("MODEL_NAME", "llama3-8b-8192")
 AVAILABLE_MODELS = {
     "llama3-70b-8192": "🧠 Llama 3 70B (Inteligente/Code/Math)",
     "llama-3.1-8b-instant": "⚡ Llama 3.1 8B (Rápido/Chat)",
-    "gemma2-9b-it": "🤖 Gemma 2 9B (Google/Creativo)"
+    "gemma2-9b-it": "🤖 Gemma 2 9B (Google/Creativo)",
+    "openai/gpt-oss-120b": "🦾 GPT-OSS 120B (OpenAI/Inteligente)"
 }
 
 async def models_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -35,7 +36,9 @@ async def models_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Selecciona el modelo que deseas usar. Tu preferencia se guardará automáticamente.\n\n"
         "🔸 <b>Llama 70B:</b> El más inteligente y el que se usa por defecto. Útil para código, matemáticas y lógica compleja.\n"
         "🔸 <b>Llama 3.1 8B:</b> El más rápido. Ideal para charlas casuales.\n"
-        "🔸 <b>Gemma 2:</b> Modelo de Google. Bueno para escritura creativa."
+        "🔸 <b>Gemma 2:</b> Modelo de Google. Bueno para escritura creativa.\n"
+        "🔸 <b>GPT-OSS 120B:</b> Modelo de OpenAI. Ideal para tareas complejas.\n"
+
     )
 
     await update.message.reply_text(msg_text, reply_markup=reply_markup, parse_mode="HTML")
