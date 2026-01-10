@@ -5,6 +5,7 @@ import asyncio
 import json
 import re
 import random
+import html
 from dotenv import load_dotenv
 from utils.logger import add_log_line
 
@@ -60,6 +61,70 @@ class GroqManager:
             add_log_line(f"⚖️ Límite de {self.ROTATION_LIMIT} pedidos alcanzado. Rotación preventiva.")
             self.rotate_key()
 
+    
+    def _balance_html_tags(self, text):
+        """Cierra automáticamente las etiquetas HTML que quedaron abiertas."""
+        tags = ['b', 'i', 'code', 'pre', 's', 'u']
+        for tag in tags:
+            open_count = text.count(f'<{tag}>')
+            close_count = text.count(f'</{tag}>')
+            if open_count > close_count:
+                text += f'</{tag}>' * (open_count - close_count)
+        return text
+
+    def _format_telegram_message(self, text):
+        """
+        Convierte Markdown a HTML soportado por Telegram de forma robusta.
+        """
+        if not text: return ""
+
+        # 1. Limpieza inicial
+        text = re.sub(r'<[^>]+>', '', text)  # Eliminar cualquier HTML que la IA haya intentado colar
+
+        # 2. Separar bloques de código (```) para no tocarlos
+        parts = re.split(r'(```[\s\S]*?```)', text)
+        formatted_parts = []
+
+        for part in parts:
+            if part.startswith("```"):
+                # Es bloque de código: Escapar contenido interno y poner tags <pre>
+                match = re.match(r'```(\w+)?\n?([\s\S]*)```', part)
+                if match:
+                    code_content = match.group(2)
+                    code_content = html.escape(code_content.strip())
+                    formatted_parts.append(f"<pre><code>{code_content}</code></pre>")
+                else:
+                    formatted_parts.append(html.escape(part)) # Fallback
+            else:
+                # Es texto normal: Escapar HTML PRIMERO, luego aplicar formato Markdown
+                part = html.escape(part)
+
+                # --- CONVERSIÓN MARKDOWN A HTML ---
+
+                # 1. Encabezados (# Título -> <b>Título</b>)
+                part = re.sub(r'^\s*#{1,6}\s+(.*?)$', r'<b>\1</b>', part, flags=re.MULTILINE)
+
+                # 2. Negrita (**texto**) - Mejorada para soportar saltos de línea
+                part = re.sub(r'\*\*(?=\S)(.+?)(?<=\S)\*\*', r'<b>\1</b>', part, flags=re.DOTALL)
+
+                # 3. Cursiva (_texto_) - Mejorada para soportar saltos de línea
+                part = re.sub(r'(?<!\w)_([^_]+)_(?!\w)', r'<i>\1</i>', part)
+                
+                # 4. Cursiva (*texto*) - Cuidado con no romper las listas
+                part = re.sub(r'(?<!\*)\*(?=\S)([^\*\n]+)(?<=\S)\*(?!\*)', r'<i>\1</i>', part)
+                
+                # 5. Código inline (`texto`)
+                part = re.sub(r'`([^`\n]+)`', r'<code>\1</code>', part)
+
+                # 6. Listas (convertir * o - en •)
+                part = re.sub(r'(?m)^(\s*)[\*\-]\s+', r'\1• ', part)
+
+                formatted_parts.append(part)
+
+        # Unir y balancear etiquetas por seguridad
+        final_text = "".join(formatted_parts)
+        return self._balance_html_tags(final_text)
+
     async def get_response(self, messages, model=None, temperature=0.3):
         """
         Ahora acepta un parámetro 'model'. Si es None, usa self.model (el del .env).
@@ -76,10 +141,17 @@ class GroqManager:
         system_prompt = {
             "role": "system", 
             "content": (
-                "Eres BitBread IA. Tu misión es actuar como un asistente híbrido: "
-                "1. Si se te proporciona 'INFORMACIÓN OFICIAL' o contexto técnico, actúa como un experto estricto en ese dominio (BitBread/HACCP) y basa tu respuesta en esos datos. "
-                "2. Si NO se proporciona contexto o la pregunta es general (saludos, cultura, código general), actúa como una IA útil, amable y experta en tecnología. "
-                "Siempre responde usando formato HTML para Telegram (<b>negrita</b>, <i>cursiva</i>, listas)."
+                "Eres BitBread IA, un chatbot de telegram. "
+                "Si recibes 'INFORMACIÓN OFICIAL', actúa como experto estricto. Si no, sé amable y útil. "
+                "SIEMPRE responde en español.\n\n"
+                "IMPORTANTE SOBRE FORMATO:\n"
+                "1. NO uses etiquetas HTML (como <b>, <i>). Telegram no las procesará bien si las envías tú.\n"
+                "2. USA EXCLUSIVAMENTE MARKDOWN para formatear:\n"
+                "   - **Texto en negrita** para resaltar cosas importantes.\n"
+                "   - *Texto en cursiva* para nombres de obras o énfasis suave.\n"
+                "   - `Código` para comandos o términos técnicos.\n"
+                "   - Usa listas con guiones (-) o asteriscos (*) para enumerar.\n"
+                "3. NO uses tablas Markdown ni HTML. Usa listas ordenadas."
             )
         }
 
@@ -103,23 +175,11 @@ class GroqManager:
                     # 1. ÉXITO
                     if response.status_code == 200:
                         data = response.json()
-                        content = data['choices'][0]['message']['content']   
-                                      
-                        # --- INICIO FORMATEO MARKDOWN A HTML TELEGRAM ---
-                        # 1. Negrita: **texto** -> <b>texto</b>
-                        content = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', content)                        
-                        # 2. Encabezados: ### Texto -> <b>Texto</b> (Telegram no soporta h1-h3, usamos negrita)
-                        content = re.sub(r'#{1,6}\s+(.*?)$', r'<b>\1</b>', content, flags=re.MULTILINE)                        
-                        # 3. Listas: * item o - item -> • item (Mejora visual)
-                        content = re.sub(r'(?m)^[\*\-]\s+', '• ', content)                        
-                        # 4. Código inline: `texto` -> <code>texto</code>
-                        content = re.sub(r'`([^`\n]+)`', r'<code>\1</code>', content)                        
-                        # 5. Bloques de código: ```python ... ``` -> <pre><code> ... </code></pre>
-                        # Nota: Esto es básico. Si el modelo envía ```python, Telegram a veces requiere <pre><code class="language-python">
-                        # Para simplificar y evitar errores de parseo, usamos pre+code genérico:
-                        content = re.sub(r'```(\w+)?\n(.*?)```', r'<pre><code>\2</code></pre>', content, flags=re.DOTALL)
-                        # --- FIN FORMATEO ---
-                        
+                        raw_content = data['choices'][0]['message']['content']   
+
+                       # Formatear el contenido para Telegram
+                        content = self._format_telegram_message(raw_content)
+                                               
                         self.usage_stats[self.current_key] += 1
                         self.total_requests += 1
                         self._save_stats()
