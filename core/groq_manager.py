@@ -152,6 +152,7 @@ class GroqManager:
                 "   - `Código` para comandos o términos técnicos.\n"
                 "   - Usa listas con guiones (-) o asteriscos (*) para enumerar.\n"
                 "3. NO uses tablas Markdown ni HTML. Usa listas ordenadas."
+                "4. responde en menos de 2048 caracteres siempre que sea posible como maximo usa 3000"
             )
         }
 
