@@ -2,53 +2,54 @@ import math
 
 def smart_split(text, limit=4000):
     """
-    Divide un texto HTML largo en fragmentos seguros para Telegram.
-    Maneja el cierre y reapertura de etiquetas <pre><code> para no romper el formato.
+    Divide texto HTML en fragmentos seguros para Telegram.
+    Balancea etiquetas: <pre>, <code>, <b>, <i>, <u>, <s>.
     """
     if len(text) <= limit:
         return [text]
 
     chunks = []
+    # Lista de etiquetas que debemos vigilar si quedan abiertas
+    tags_to_track = ["pre", "code", "b", "i", "u", "s"]
+
     while text:
         if len(text) <= limit:
             chunks.append(text)
             break
 
-        # 1. Buscamos el mejor punto de corte (último salto de línea antes del límite)
+        # 1. Buscar punto de corte
         split_at = text.rfind('\n', 0, limit)
-        
-        # Si no hay saltos de línea (raro), cortamos en el límite duro
         if split_at == -1:
-            split_at = limit
+            split_at = text.rfind(' ', 0, limit) # Intentar en un espacio si no hay saltos
+        if split_at == -1:
+            split_at = limit # Corte duro si no hay opción
 
         chunk = text[:split_at]
         next_text = text[split_at:]
 
-        # 2. Verificamos si hemos cortado dentro de un bloque de código
-        # Contamos etiquetas de apertura y cierre en este fragmento
-        open_pre = chunk.count("<pre>")
-        close_pre = chunk.count("</pre>")
-        
-        open_code = chunk.count("<code>")
-        close_code = chunk.count("</code>")
-
-        # 3. Balanceamos el fragmento actual si quedó abierto
-        # Nota: Asumimos que si hay <pre> también hay <code>, común en este bot
+        # 2. Balancear etiquetas
         tags_to_close = ""
         tags_to_reopen = ""
 
-        if open_code > close_code:
-            tags_to_close += "</code>"
-            tags_to_reopen = "<code>" + tags_to_reopen
-        
-        if open_pre > close_pre:
-            tags_to_close += "</pre>"
-            tags_to_reopen = "<pre>" + tags_to_reopen
+        # Revisamos cada tipo de etiqueta
+        for tag in tags_to_track:
+            # Contamos aperturas y cierres simples
+            # Nota: Esto asume HTML bien formado por la IA.
+            # No arregla etiquetas cruzadas (<b><i>...</b></i>), eso debe venir bien de la IA.
+            start_tag = f"<{tag}>"
+            end_tag = f"</{tag}>"
+            
+            count_open = chunk.count(start_tag)
+            count_close = chunk.count(end_tag)
 
-        # Cerramos tags en el chunk actual
+            if count_open > count_close:
+                tags_to_close += end_tag
+                tags_to_reopen = start_tag + tags_to_reopen
+        
+        # Cerramos en el chunk actual
         chunk += tags_to_close
         
-        # Abrimos tags en el siguiente texto (al principio)
+        # Abrimos en el siguiente texto
         if tags_to_reopen:
             next_text = tags_to_reopen + next_text
 

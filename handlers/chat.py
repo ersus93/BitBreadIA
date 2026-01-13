@@ -134,9 +134,19 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             
             # Inyectamos contexto en el último mensaje
             last_msg = messages_to_send[-1]
+            
+            # --- AGREGAMOS REGLAS DE HTML AL SISTEMA ---
+            html_rules = (
+                "\n⚠️ REGLAS CRÍTICAS DE FORMATO:"
+                "\n1. Usa SOLO HTML de Telegram: <b>negrita</b>, <i>cursiva</i>, <code>código</code>, <pre>bloque</pre>."
+                "\n2. JAMÁS cruces etiquetas. Ejemplo MAL: <b>texto <i>otro</b></i>. Ejemplo BIEN: <b>texto <i>otro</i></b>."
+                "\n3. Revisa estrictamente que toda etiqueta abierta se cierre."
+            )
+            
             new_content = (
                 f"{found_context}\n\n"
-                f"{system_instruction}"
+                f"{system_instruction}\n"
+                f"{html_rules}\n\n"  # <--- Inyectamos las reglas aquí
                 f"👤 Pregunta del usuario: {last_msg['content']}"
             )
             messages_to_send[-1] = {"role": "user", "content": new_content}
@@ -159,7 +169,8 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     except Exception as e:
         # Fallback: Si falla el HTML, enviamos texto plano pero DIVIDIDO
-        add_log_line(f"⚠️ Error enviando HTML: {e}. Reintentando texto plano.", level="WARNING")
+        error_msg = str(e)
+        add_log_line(f"⚠️ Error HTML ({error_msg}). Reintentando texto plano.", level="WARNING")
         
         # Dividimos por longitud pura para evitar "Message is too long"
         plain_chunks = split_text_safe(ai_response, limit=4000)
