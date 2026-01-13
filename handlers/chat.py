@@ -7,6 +7,8 @@ from core.context_manager import add_message, get_user_context, get_user_model, 
 from handlers.agents import AGENTS
 from core.knowledge_manager import knowledge_base
 from utils.logger import add_log_line
+from utils.html_utils import smart_split, split_text_safe
+
 
 DEFAULT_MODEL = os.getenv("MODEL_NAME", "llama3-8b-8192")
 
@@ -140,7 +142,6 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             messages_to_send[-1] = {"role": "user", "content": new_content}
             add_log_line(f"📚 Contexto inyectado ({len(found_context)} chars).")
 
-    # --- LLAMADA A LA API (Única vez) ---
     user_model = get_user_model(user_id, DEFAULT_MODEL)
     
     # Usamos messages_to_send que ya contiene (o no) el contexto del agente
@@ -148,16 +149,19 @@ async def chat_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
    
     # 4. Guardar respuesta
     add_message(user_id, "assistant", ai_response)
+    
     try:
-        if len(ai_response) > 4000:
-            # Dividir en trozos de 4000
-            chunks = [ai_response[i:i+4000] for i in range(0, len(ai_response), 4000)]
-            for chunk in chunks:
-                await msg.reply_text(chunk, parse_mode=constants.ParseMode.HTML)
-        else:
-            await msg.reply_text(ai_response, parse_mode=constants.ParseMode.HTML)
+        # Usamos el divisor inteligente que respeta HTML
+        chunks = smart_split(ai_response, limit=4000)
+        
+        for chunk in chunks:
+            await msg.reply_text(chunk, parse_mode=constants.ParseMode.HTML)
 
     except Exception as e:
-        # Fallback por si el HTML está mal formateado (pasa a veces con modelos LLM)
-        add_log_line(f"⚠️ Error enviando mensaje (posible HTML roto): {e}")
-        await msg.reply_text(ai_response)
+        # Fallback: Si falla el HTML, enviamos texto plano pero DIVIDIDO
+        add_log_line(f"⚠️ Error enviando HTML: {e}. Reintentando texto plano.", level="WARNING")
+        
+        # Dividimos por longitud pura para evitar "Message is too long"
+        plain_chunks = split_text_safe(ai_response, limit=4000)
+        for p_chunk in plain_chunks:
+            await msg.reply_text(p_chunk)
