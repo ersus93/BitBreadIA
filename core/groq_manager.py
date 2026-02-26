@@ -195,10 +195,30 @@ class GroqManager:
                         await asyncio.sleep(1) # Esperar un poco antes de reintentar
                     
                     # 3. ERROR 413 (CONTEXTO DEMASIADO GRANDE)
-                    # Este error NO se arregla reintentando, hay que abortar para no buclear.
+                    # Limpiamos automáticamente el contexto y reintentamos con solo la última pregunta
                     elif response.status_code == 413:
-                        add_log_line(f"❌ Error 413: Contexto demasiado grande. {response.text}", level="ERROR")
-                        return "⚠️ <b>Error de capacidad:</b> La conversación es demasiado larga o compleja para procesarla de una vez. Intenta /newchat o resume tu pregunta."
+                        add_log_line(f"❌ Error 413: Contexto demasiado grande. Reintentando con solo la última pregunta...", level="ERROR")
+                        # Reintentar con solo la última pregunta (limpiamos el historial)
+                        messages_to_send = [system_prompt] + [messages[-1]]  # Solo última pregunta
+                        payload["messages"] = messages_to_send
+                        # Realizamos el reintento con el contexto reducido
+                        response = await client.post(
+                            self.api_url, 
+                            headers=self._get_headers(), 
+                            json=payload
+                        )
+                        if response.status_code == 200:
+                            data = response.json()
+                            raw_content = data['choices'][0]['message']['content']   
+                            content = self._format_telegram_message(raw_content)
+                            self.usage_stats[self.current_key] += 1
+                            self.total_requests += 1
+                            self._save_stats()
+                            self._check_preventive_rotation()
+                            return content
+                        else:
+                            add_log_line(f"❌ Error 413 persistente después de limpiar contexto: {response.text}", level="ERROR")
+                            return "⚠️ <b>Error de capacidad:</b> La conversación es demasiado larga o compleja para procesarla de una vez. Intenta /newchat o resume tu pregunta."
 
                     # 4. OTROS ERRORES
                     else:
