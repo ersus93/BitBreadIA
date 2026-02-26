@@ -24,7 +24,7 @@ async def logs_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     try:
-        # 1. Llamamos a la función CORRECTA que ya existe
+        # 1. Llamamos a la función CORRECTA que ya existe.
         stats_text = groq_ai.get_stats()
 
         # 2. Obtenemos logs
