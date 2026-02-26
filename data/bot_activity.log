@@ -627,3 +627,7 @@ telegram.error.BadRequest: File is too big
 2026-02-24 11:50:36 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
 2026-02-24 12:21:41 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
 2026-02-24 13:37:07 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-24 13:47:04 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-24 14:23:08 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-24 17:38:15 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-25 08:59:57 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
