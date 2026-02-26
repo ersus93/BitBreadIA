@@ -948,6 +948,10 @@ git_pull_repository() {
     if [ $? -eq 0 ]; then
         print_success "Código actualizado correctamente."
         
+        # Actualizar versión después de pull
+        print_step "Actualizando versión del bot..."
+        update_version
+        
         # Preguntar sobre dependencias
         read -p "¿Actualizar dependencias? (S/n): " update_deps
         if [[ ! "$update_deps" =~ ^[nN]$ ]]; then
@@ -1203,6 +1207,15 @@ create_environment() {
     git clone https://github.com/ersus93/bbalert.git "$ENV_DIR"
     cd "$ENV_DIR"
     git checkout "$ENV_BRANCH"
+    
+    # Actualizar versión después de clonar
+    print_step "Actualizando versión del bot..."
+    if command -v python3 &> /dev/null; then
+        python3 update_version.py --auto 2>/dev/null
+        print_success "Versión actualizada."
+    else
+        print_warning "No se pudo actualizar la versión automáticamente."
+    fi
     
     # Crear venv
     detect_python
