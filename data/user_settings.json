@@ -1,5 +1,10 @@
 {
   "1058749165": {
-    "model": "llama-3.1-8b-instant"
+    "model": "openai/gpt-oss-120b",
+    "agent": "general"
+  },
+  "1148031284": {
+    "agent": "general",
+    "model": "openai/gpt-oss-120b"
   }
 }

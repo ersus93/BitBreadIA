@@ -1,0 +1,629 @@
+2026-01-03 18:39:08 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-03 18:39:08 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-03 19:36:37 [INFO] [logger.py:60] ⚠️ Excepción capturada: cannot access local variable 'e' where it is not associated with a value
+2026-01-03 19:36:40 [INFO] [logger.py:60] ⚠️ Excepción capturada: cannot access local variable 'e' where it is not associated with a value
+2026-01-03 19:37:12 [INFO] [logger.py:60] ⚠️ Excepción capturada: cannot access local variable 'e' where it is not associated with a value
+2026-01-03 19:37:30 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: Hola...
+2026-01-03 19:39:42 [INFO] [logger.py:60] ⚠️ Excepción capturada: cannot access local variable 'e' where it is not associated with a value
+2026-01-03 19:40:07 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: 🤔...
+2026-01-03 20:05:10 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-03 20:05:10 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:00:00 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:00:00 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:00:47 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:00:47 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:02:34 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:02:34 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:07:57 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:07:57 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:08:53 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:08:54 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:10:10 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:10:11 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:12:50 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:12:50 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:14:13 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:14:13 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:30:11 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:30:11 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 01:31:29 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-04 01:31:29 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-04 09:22:55 [INFO] [logger.py:60] 📚 Contexto inyectado (16724 chars). Usando Modo Experto.
+2026-01-04 09:24:05 [INFO] [logger.py:60] 📚 Contexto inyectado (25514 chars). Usando Modo Experto.
+2026-01-04 14:51:57 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: Puedes analizar imágenes ?...
+2026-01-04 14:53:38 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: 📄 [Contexto: Respondiendo a er...
+2026-01-05 04:03:32 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 04:03:32 [INFO] [logger.py:60] 📚 Contexto inyectado (8866 chars). Usando Modo Experto.
+2026-01-05 04:03:32 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 04:03:51 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 04:03:51 [INFO] [logger.py:60] 📚 Contexto inyectado (8866 chars). Usando Modo Experto.
+2026-01-05 04:03:51 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 04:04:22 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 04:04:22 [INFO] [logger.py:60] 📚 Contexto inyectado (8866 chars). Usando Modo Experto.
+2026-01-05 04:04:22 [ERROR] [logger.py:56] Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-05 15:27:11 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: A futuro habrá que tener cuida...
+2026-01-05 15:28:25 [INFO] [logger.py:60] 📚 Contexto inyectado (25067 chars). Usando Modo Experto.
+2026-01-05 15:28:25 [ERROR] [logger.py:56] Error API Groq 413: {"error":{"message":"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kdp08m15ebftgxc3yg81ryz9` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12820, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-05 15:28:37 [INFO] [logger.py:60] 📚 Contexto inyectado (21127 chars). Usando Modo Experto.
+2026-01-05 15:28:37 [WARNING] [logger.py:58] ⚠️ API Groq inestable (429). Rotando key...
+2026-01-05 15:28:37 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...kbRH
+2026-01-05 15:29:23 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: Estábamos hablando sobre stabl...
+2026-01-05 15:29:23 [WARNING] [logger.py:58] ⚠️ API Groq inestable (429). Rotando key...
+2026-01-05 15:29:23 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-05 15:30:45 [INFO] [logger.py:60] 📚 Contexto inyectado (31218 chars). Usando Modo Experto.
+2026-01-05 15:30:45 [ERROR] [logger.py:56] Error API Groq 413: {"error":{"message":"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kdp041tte3e82jp0v900z7mh` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 13914, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-05 15:30:56 [INFO] [logger.py:60] 📚 Contexto inyectado (31218 chars). Usando Modo Experto.
+2026-01-05 15:30:56 [ERROR] [logger.py:56] Error API Groq 413: {"error":{"message":"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kdp041tte3e82jp0v900z7mh` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 13303, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-05 15:31:07 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: Hola...
+2026-01-05 15:31:07 [WARNING] [logger.py:58] ⚠️ API Groq inestable (429). Rotando key...
+2026-01-05 15:31:07 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-05 15:31:50 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: 📄 [Contexto: Respondiendo a Bi...
+2026-01-05 20:45:35 [INFO] [logger.py:60] 🌍 Modo General (Sin contexto local) para: Traduce agente al inglés...
+2026-01-05 20:56:15 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-05 20:56:15 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-05 21:17:59 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-05 21:17:59 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-05 21:21:05 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:21:05 [INFO] [logger.py:60] ⚠️ Excepción capturada: 'clean_content'
+2026-01-05 21:29:27 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-05 21:29:27 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-05 21:29:43 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:29:44 [INFO] [logger.py:60] 📚 Contexto inyectado (5158 chars). Usando Modo Experto.
+2026-01-05 21:31:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:31:04 [INFO] [logger.py:60] 📚 Contexto inyectado (3531 chars). Usando Modo Experto.
+2026-01-05 21:31:53 [INFO] [logger.py:60] 🔍 Agente haccp buscando en carpeta: HACCP
+2026-01-05 21:31:53 [INFO] [logger.py:60] 📚 Contexto inyectado (3531 chars).
+2026-01-05 21:31:54 [INFO] [logger.py:60] 📚 Contexto inyectado (3531 chars). Usando Modo Experto.
+2026-01-05 21:32:05 [INFO] [logger.py:60] 🔍 Agente bitbread buscando en carpeta: BitBread
+2026-01-05 21:32:05 [INFO] [logger.py:60] 📚 Contexto inyectado (6087 chars).
+2026-01-05 21:32:05 [INFO] [logger.py:60] 📚 Contexto inyectado (3531 chars). Usando Modo Experto.
+2026-01-05 21:51:29 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-05 21:51:30 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-05 21:51:53 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:55:58 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:57:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 21:57:50 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-05 22:16:22 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-05 22:16:23 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-05 22:17:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 07:46:47 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 07:47:27 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 07:47:46 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 14:45:50 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-06 14:45:50 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-06 14:58:20 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-06 20:20:31 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:34:44 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:34:45 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:34:45 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...NHGS
+2026-01-06 22:34:45 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:34:45 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-06 22:34:45 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:34:45 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...kbRH
+2026-01-06 22:34:45 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:34:45 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-06 22:34:45 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `gemma2-9b-it` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:34:45 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...EtgV
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:35:31 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...NHGS
+2026-01-06 22:35:31 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-06 22:35:31 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...kbRH
+2026-01-06 22:35:31 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-06 22:35:31 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:35:31 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...EtgV
+2026-01-06 22:51:26 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:51:54 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...NHGS
+2026-01-06 22:51:54 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-06 22:51:54 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...kbRH
+2026-01-06 22:51:54 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-06 22:51:54 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:51:54 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...EtgV
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-06 22:52:25 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...NHGS
+2026-01-06 22:52:25 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-06 22:52:25 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...kbRH
+2026-01-06 22:52:25 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-06 22:52:25 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-06 22:52:25 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...EtgV
+2026-01-07 00:49:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 06:24:24 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-01-07 06:47:51 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-01-07 06:51:34 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-01-07 07:16:42 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-01-07 07:48:10 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-07 07:52:38 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-01-07 07:56:05 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-07 08:01:03 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-01-07 10:07:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 10:11:32 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:13:12 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-07 13:13:13 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-07 13:20:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:25:22 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:25:23 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unsupported start tag "ul" at byte offset 172
+2026-01-07 13:34:21 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:34:23 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unsupported start tag "ul" at byte offset 333
+2026-01-07 13:44:20 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-07 13:44:20 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-07 13:44:40 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:44:45 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unsupported start tag " 1 500 mg)." at byte offset 1313
+2026-01-07 13:44:45 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-07 13:46:19 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-07 13:46:19 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-07 13:46:33 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:46:36 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unsupported start tag " 1 500 mg)" at byte offset 547
+2026-01-07 13:47:52 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-07 13:47:52 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-07 13:48:09 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 13:55:44 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-07 13:56:05 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-07 13:56:05 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-07 13:56:30 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 14:11:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 14:11:19 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 14:11:19 [WARNING] [logger.py:58] ⚠️ Groq (429) en intento 1. Rotando...
+2026-01-07 14:11:19 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-07 14:12:47 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-07 14:13:17 [ERROR] [logger.py:56] ❌ Excepción de conexión (Intento 1)
+   ╚══ 💥 Causa Técnica: File "/home/ersus/bbchat/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+2026-01-07 14:13:17 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:26:55 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:28:52 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 09:28:52 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 09:28:52 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 09:28:52 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 09:28:52 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:28:52 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:29:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:29:00 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:00 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 09:29:00 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:00 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 09:29:00 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:00 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 09:29:00 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:00 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 09:29:01 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:01 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:29:11 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:29:11 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:11 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 09:29:11 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:11 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 09:29:11 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:11 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 09:29:11 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:11 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 09:29:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:29:22 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:29:22 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:22 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 09:29:23 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:23 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 09:29:23 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:23 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 09:29:23 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:23 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 09:29:23 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:23 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:29:27 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 09:29:27 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 09:29:27 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 09:29:27 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 09:29:27 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 09:29:27 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 09:29:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:31:31 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:32:27 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:33:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:33:46 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 09:34:09 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 12:22:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 12:32:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...NHGS
+2026-01-08 12:32:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...NHGS -> ...bDw1
+2026-01-08 12:32:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...bDw1 -> ...EtgV
+2026-01-08 12:32:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...EtgV -> ...kbRH
+2026-01-08 12:32:12 [ERROR] [logger.py:56] ❌ Error API Groq 400: {"error":{"message":"The model `llama3-70b-8192` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+2026-01-08 12:32:12 [INFO] [logger.py:60] 🔄 Rotando API Key: ...kbRH -> ...F4OP
+2026-01-08 12:43:35 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 12:43:38 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unsupported start tag "db_host" at byte offset 1480
+2026-01-08 12:43:46 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 12:43:52 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 15:27:40 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-08 15:27:40 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-08 15:28:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 15:29:08 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-08 15:29:08 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-08 15:29:12 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 15:30:13 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-08 15:30:13 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-08 15:30:23 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 15:38:56 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-08 15:38:56 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-08 17:31:19 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-08 18:00:32 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 18:00:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 18:00:34 [WARNING] [logger.py:58] ⚠️ Groq (429) en intento 1. Rotando...
+2026-01-08 18:00:34 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...kbRH
+2026-01-08 18:00:38 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 18:00:38 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01kdpbpcwxfwvv54c6d9rjd16z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8574, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-08 18:00:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-08 18:00:39 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01kdpbpcwxfwvv54c6d9rjd16z` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8465, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-09 07:10:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 07:14:12 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 07:14:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 07:17:07 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 08:16:27 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 08:16:32 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: can't find end tag corresponding to start tag "i"
+2026-01-09 08:16:32 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-09 08:21:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:02:40 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:02:40 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:03:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:04:40 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:04:40 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:04:51 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:12:02 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:12:02 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:12:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:16:58 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:16:58 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:18:19 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:18:19 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:18:46 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:18:46 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:19:03 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:20:50 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:20:50 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:20:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:24:20 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:24:20 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:24:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:26:06 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 12:26:06 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 12:26:23 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:26:23 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01kdp08m15ebftgxc3yg81ryz9` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8578, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-09 12:26:36 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:27:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:43:45 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:45:06 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 12:45:48 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 13:04:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 13:40:24 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 13:40:24 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 20:12:34 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 20:12:36 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: unmatched end tag at byte offset 1046, expected "</i>", found "</b>"
+2026-01-09 20:21:58 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 20:21:58 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 20:22:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 20:28:43 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-09 20:28:43 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-09 20:28:52 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-09 20:32:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 00:14:01 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 07:42:25 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 12:02:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 13:26:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 18:11:48 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-10 19:42:05 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-10 21:39:38 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-11 08:33:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-11 08:41:17 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-11 10:19:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-11 19:30:35 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-11 23:21:15 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-11 23:22:22 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 06:58:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 06:59:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 10:54:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 15:40:37 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 17:17:14 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 17:17:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:31:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:31:42 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:31:42 [WARNING] [logger.py:58] ⚠️ Groq (429) en intento 1. Rotando...
+2026-01-12 19:31:42 [INFO] [logger.py:60] 🔄 Rotando API Key: ...F4OP -> ...EtgV
+2026-01-12 19:48:13 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:48:14 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01ke8gfadafz8a0xtwb16q9fj1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 10318, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-12 19:48:28 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:48:31 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: can't find end tag corresponding to start tag "code"
+2026-01-12 19:48:31 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-12 19:49:44 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:49:48 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: can't find end tag corresponding to start tag "code"
+2026-01-12 19:49:48 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-12 19:50:11 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 19:50:14 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: can't find end tag corresponding to start tag "code"
+2026-01-12 19:50:14 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-12 20:04:57 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 20:20:53 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 20:20:57 [INFO] [logger.py:60] ⚠️ Error enviando mensaje (posible HTML roto): Can't parse entities: can't find end tag corresponding to start tag "code"
+2026-01-12 20:20:58 [INFO] [logger.py:60] ⚠️ Excepción capturada: Message is too long
+2026-01-12 20:25:37 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 20:36:12 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 20:36:12 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-12 20:36:53 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 20:38:08 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:05:06 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:05:16 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:05:27 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:05:37 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:05:48 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:05:58 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:06:09 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:06:19 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:06:30 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:06:40 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:06:51 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:01 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:12 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:22 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:33 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:43 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:54 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:07:54 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-12 21:08:01 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:08:01 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-12 21:12:26 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:14:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:14:19 [WARNING] [logger.py:58] ⚠️ Error enviando HTML: Can't parse entities: unmatched end tag at byte offset 121, expected "</i>", found "</b>". Reintentando texto plano.
+2026-01-12 21:15:47 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:15:49 [WARNING] [logger.py:58] ⚠️ Error enviando HTML: Can't parse entities: unmatched end tag at byte offset 121, expected "</i>", found "</b>". Reintentando texto plano.
+2026-01-12 21:16:10 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:24:34 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-01-12 21:24:34 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-01-12 21:25:39 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:25:52 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:25:53 [WARNING] [logger.py:58] ⚠️ Error HTML (Can't parse entities: unmatched end tag at byte offset 121, expected "</i>", found "</b>"). Reintentando texto plano.
+2026-01-12 21:26:09 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 21:26:10 [WARNING] [logger.py:58] ⚠️ Error HTML (Can't parse entities: unmatched end tag at byte offset 119, expected "</i>", found "</b>"). Reintentando texto plano.
+2026-01-12 22:38:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 22:38:59 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01ke8gfadafz8a0xtwb16q9fj1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8575, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-12 22:44:30 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-12 22:44:30 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01ke8gfadafz8a0xtwb16q9fj1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8621, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-13 00:03:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 04:29:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 08:18:05 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 08:18:11 [WARNING] [logger.py:58] ⚠️ Error HTML (Can't parse entities: unmatched end tag at byte offset 4286, expected "</code>", found "</pre>"). Reintentando texto plano.
+2026-01-13 08:26:47 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 19:47:49 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 19:48:01 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 19:48:24 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-13 19:48:41 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-14 02:41:35 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-14 03:33:05 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-14 07:10:29 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-15 00:59:43 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-15 06:24:34 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-15 09:23:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-15 09:23:04 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01ke8gfadafz8a0xtwb16q9fj1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8239, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-01-15 09:27:13 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-16 03:55:36 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-16 08:31:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-16 10:16:18 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-16 15:51:55 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-17 08:52:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-17 08:54:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-17 12:42:19 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-17 13:30:56 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-17 15:15:04 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-17 16:06:10 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-17 16:12:39 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-17 20:13:29 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-19 07:21:53 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-19 08:56:41 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-19 16:19:08 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-20 07:11:20 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-20 21:25:30 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-21 02:53:44 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-21 07:33:32 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-21 09:31:59 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-21 11:57:22 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-22 11:51:42 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-22 13:39:58 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-23 10:06:31 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-23 13:26:28 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-24 10:45:42 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-25 15:36:47 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-25 16:53:07 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-25 17:00:56 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-25 20:06:24 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-25 20:44:15 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-26 04:42:48 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-26 13:26:59 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-26 16:01:09 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-26 16:53:33 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-26 20:10:45 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-01-26 20:10:46 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-01-26 20:10:47 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-01-27 12:36:07 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-27 12:37:19 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-28 11:40:12 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-29 10:56:22 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-29 13:30:47 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-29 14:46:18 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-29 16:08:39 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-29 23:34:30 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-30 10:19:06 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-30 10:19:35 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-01-31 12:39:07 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-31 17:11:22 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-01-31 17:12:16 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-01 08:21:22 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-02 15:52:43 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-02 16:02:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-02 16:07:20 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-02 22:46:21 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-03 15:44:20 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-03 19:03:25 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 19:06:35 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 19:08:27 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 19:52:05 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 19:56:24 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 20:02:19 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 20:02:20 [ERROR] [logger.py:56] ❌ Error 413: Contexto demasiado grande. {"error":{"message":"Request too large for model `openai/gpt-oss-120b` in organization `org_01ke8gfadafz8a0xtwb16q9fj1` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 8808, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+2026-02-03 20:02:58 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 20:07:20 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-03 22:58:18 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 06:30:30 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 09:57:49 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 10:20:33 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 10:58:24 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 11:48:37 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 11:56:35 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 12:04:08 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 12:07:01 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 12:59:05 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-05 13:10:12 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-06 01:48:17 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-06 13:14:41 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-06 17:39:25 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-02-06 17:39:34 [INFO] [logger.py:60] ⚠️ Excepción capturada: Bad Gateway
+2026-02-07 10:36:06 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-07 10:36:37 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-08 11:12:05 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-09 10:22:27 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ConnectError: 
+2026-02-09 11:09:02 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-10 00:41:21 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 01:00:03 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-10 01:03:26 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 02:05:05 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 02:06:29 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 02:06:52 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 09:20:17 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.RemoteProtocolError: Server disconnected without sending a response.
+2026-02-10 14:35:16 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-10 15:37:10 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-10 15:46:41 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-11 04:04:51 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-11 05:05:32 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-11 13:07:41 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-11 13:09:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-11 13:09:38 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-12 11:00:00 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-12 23:38:45 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-13 12:03:23 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-13 16:55:37 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-13 23:02:13 [ERROR] [logger.py:56] ¡Ups!
+   ╚══ 💥 Causa Técnica: File "/home/ersus/bbchat/venv/lib/python3.13/site-packages/telegram/request/_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.BadRequest: File is too big
+2026-02-14 12:17:32 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-16 14:23:21 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-16 15:17:16 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-16 17:17:25 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-17 10:02:11 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-17 14:28:18 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-17 23:05:23 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-18 08:01:51 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-19 06:43:54 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-20 01:10:38 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-20 10:25:24 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-20 11:03:06 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-20 12:16:52 [INFO] [logger.py:60] 📈 Estadísticas cargadas correctamente.
+2026-02-20 12:16:53 [INFO] [logger.py:60] 🤖 Iniciando Bot de Chat Groq (Multi-API) con Soporte de Audio...
+2026-02-21 09:28:04 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-21 17:38:53 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-22 14:44:42 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
+2026-02-23 11:37:47 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-23 12:34:07 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-23 12:35:29 [INFO] [logger.py:60] ⚠️ Excepción capturada: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-02-24 11:50:36 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-24 12:21:41 [INFO] [logger.py:60] ⚠️ Excepción capturada: httpx.ReadError: 
+2026-02-24 13:37:07 [INFO] [logger.py:60] 🌍 Modo General activado. Saltando búsqueda local.
