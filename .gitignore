@@ -1,20 +1,39 @@
 # Archivos de entorno - ¡MUY IMPORTANTE!
-apit.env
 .env
+*.env
 venv/
 .venv/
 env/
-*.env
+ENV/
+*.venv/
 
-
-data/docs/
+# Datos sensibles y configuraciones
+data/
+*.log
+bot_activity.log
 
 # Caché de Python y archivos compilados
 __pycache__/
 *.pyc
-
-# Carpetas de entorno virtual
-
+*.pyo
+*.pyd
+*.so
+*.dylib
+*.egg-info/
+dist/
+build/
 
 # Configuraciones específicas de VS Code
 .vscode/
+*.vscode/
+
+# Configuraciones de otros editores
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
