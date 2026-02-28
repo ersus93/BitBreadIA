@@ -16,10 +16,10 @@ AGENTS = {
         "desc": "Experto en el sistema, alertas y configuraciones del bot.",
         "folder": "BitBread" # Debe coincidir con el nombre exacto de la carpeta
     },
-    "haccp": {
-        "name": "laboratory_coat: Experto HACCP",
-        "desc": "Especialista en normativas ONARC e ISO 17025.",
-        "folder": "HACCP" # Debe coincidir con el nombre exacto de la carpeta
+    "iso17025": {
+        "name": "🧪 Experto ISO 17025",
+        "desc": "Especialista en normativas ONARC/ONIE y gestión de laboratorios acreditados ISO 17025.",
+        "folder": "ISO17025" # Debe coincidir con el nombre exacto de la carpeta
     }
 }
 

@@ -29,7 +29,7 @@ class KnowledgeManager:
         
         for root, dirs, files in os.walk(self.docs_path):
             # Detectar nombre de la carpeta actual
-            # Si estamos en data/docs/HACCP, folder_name será "HACCP"
+            # Si estamos en data/docs/ISO17025, folder_name será "ISO17025"
             # Si estamos en data/docs, folder_name será "docs" (o lo que sea el root)
             folder_name = os.path.basename(root)
             
